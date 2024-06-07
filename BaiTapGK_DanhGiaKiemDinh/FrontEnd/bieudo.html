@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Biểu đồ tròn Test Cases</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      .chart-container {
+        width: 40%;
+        margin: auto;
+        text-align: center;
+      }
+
+      .chart-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chart-container">
+      <div class="chart-title">Kết quả Test Cases</div>
+      <canvas id="myPieChart"></canvas>
+    </div>
+
+    <script>
+      var ctx = document.getElementById("myPieChart").getContext("2d");
+      var myPieChart = new Chart(ctx, {
+        type: "pie",
+        data: {
+          labels: ["Passed", "Failed"],
+          datasets: [
+            {
+              data: [81, 4],
+              backgroundColor: ["#4CAF50", "#f44336"],
+            },
+          ],
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              position: "right",
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
