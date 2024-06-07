@@ -59,6 +59,7 @@ h1 {
 
 .table-container {
   overflow-x: auto;
+  border-radius: 10px
 }
 
 table {
