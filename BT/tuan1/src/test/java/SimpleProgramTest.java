@@ -4,35 +4,30 @@ import resources.SimpleProgram;
 
 public class SimpleProgramTest {
 
-    // Issue 1: Viết các ca kiểm thử JUnit để bao phủ tất cả các lệnh trong chương
-    // trình
+    // Issue 1: Viết các ca kiểm thử JUnit để bao phủ tất cả các lệnh trong chương trình
 
     @Test
     public void testRunProgram_WithPositiveNumber_PrintsEvenAndOdd() {
         SimpleProgram program = new SimpleProgram();
         program.runProgram(5);
         // Kiểm tra xem kết quả in ra màn hình có chứa chuỗi "even" và "odd" không
-        // Chỉ kiểm tra kết quả in ra màn hình vì không thể trực tiếp kiểm tra lệnh
-        // trong main
+        // Chỉ kiểm tra kết quả in ra màn hình vì không thể trực tiếp kiểm tra lệnh trong main
     }
 
     @Test
     public void testRunProgram_WithNegativeNumber_PrintsErrorMessage() {
         SimpleProgram program = new SimpleProgram();
         program.runProgram(-5);
-        // Kiểm tra xem kết quả in ra màn hình có chứa chuỗi "Number must be positive"
-        // không
+        // Kiểm tra xem kết quả in ra màn hình có chứa chuỗi "Number must be positive" không
     }
 
-    // Issue 2: Viết các ca kiểm thử JUnit để bao phủ tất cả các đường đi trong
-    // chương trình
+    // Issue 2: Viết các ca kiểm thử JUnit để bao phủ tất cả các đường đi trong chương trình
 
     @Test
     public void testRunProgram_WithZero_PrintsErrorMessage() {
         SimpleProgram program = new SimpleProgram();
         program.runProgram(0);
-        // Kiểm tra xem kết quả in ra màn hình có chứa chuỗi "Number must be positive"
-        // không
+        // Kiểm tra xem kết quả in ra màn hình có chứa chuỗi "Number must be positive" không
     }
 
     @Test
