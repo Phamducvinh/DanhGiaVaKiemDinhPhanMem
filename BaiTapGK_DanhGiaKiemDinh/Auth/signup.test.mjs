@@ -5,7 +5,7 @@ describe("Kiểm tra đăng ký tài khoản người dùng", () => {
   // Test case 1: Email và mật khẩu đúng định dạng, xác nhận mật khẩu khớp => True
   test("Email và mật khẩu đúng định dạng, xác nhận mật khẩu khớp", () => {
     const user_SignUp = new Auth_UserSignUp(
-      "thanhbr06@gmail.com",
+      "viet2k3nguyen@gmail.com",
       "12345678abc",
       "12345678abc"
     );
@@ -22,14 +22,14 @@ describe("Kiểm tra đăng ký tài khoản người dùng", () => {
 
   // Test case 3: Mật khẩu và xác nhận mật khẩu bỏ trống => False
   test("Mật khẩu và xác nhận mật khẩu bỏ trống", () => {
-    const user_SignUp = new Auth_UserSignUp("thanhbr06@gmail.com", "", "");
+    const user_SignUp = new Auth_UserSignUp("viet2k3nguyen@gmail.com", "", "");
     expect(user_SignUp.isValidEmailAndPassword()).toBe(false);
   });
 
   // Test case 4: Mật khẩu bỏ trống => False
   test("Mật khẩu bỏ trống", () => {
     const user_SignUp = new Auth_UserSignUp(
-      "thanhbr06@gmail.com",
+      "viet2k3nguyen@gmail.com",
       "",
       "12345678abc"
     );
@@ -39,7 +39,7 @@ describe("Kiểm tra đăng ký tài khoản người dùng", () => {
   // Test case 5: Xác nhận mật khẩu bỏ trống => False
   test("Xác nhận mật khẩu bỏ trống", () => {
     const user_SignUp = new Auth_UserSignUp(
-      "thanhbr06@gmail.com",
+      "viet2k3nguyen@gmail.com",
       "12345678abc",
       ""
     );
@@ -57,7 +57,7 @@ describe("Kiểm tra đăng ký tài khoản người dùng", () => {
   // Test case 7: Email không đúng định dạng (không có @gmail.com) => False
   test("Email không đúng định dạng (không có @gmail.com)", () => {
     const user_SignUp = new Auth_UserSignUp(
-      "thanhbr06@gmail",
+      "viet2k3nguyen@gmail",
       "12345678abc",
       "12345678abc"
     );
@@ -67,7 +67,7 @@ describe("Kiểm tra đăng ký tài khoản người dùng", () => {
   // Test case 8: Email và mật khẩu không hợp lệ => False
   test("Email và mật khẩu không hợp lệ", () => {
     const user_SignUp = new Auth_UserSignUp(
-      "thanhbr06@gmail",
+      "viet2k3nguyen@gmail",
       "123456",
       "123456"
     );
@@ -77,7 +77,7 @@ describe("Kiểm tra đăng ký tài khoản người dùng", () => {
   // Test case 9: Email có thêm dấu cách => False
   test("Email có thêm dấu cách", () => {
     const user_SignUp = new Auth_UserSignUp(
-      " thanhbr06@gmail.com ",
+      " viet2k3nguyen@gmail.com ",
       "12345678abc",
       "12345678abc"
     );
@@ -97,7 +97,7 @@ describe("Kiểm tra đăng ký tài khoản người dùng", () => {
   // Test case 11: Mật khẩu và xác nhận mật khẩu khớp, đúng biên độ (8 ký tự) => True
   test("Mật khẩu và xác nhận mật khẩu khớp, đúng biên độ (8 ký tự)", () => {
     const user_SignUp = new Auth_UserSignUp(
-      "thanhbr06@gmail.com",
+      "viet2k3nguyen@gmail.com",
       "abcd1234",
       "abcd1234"
     );
@@ -109,7 +109,7 @@ describe("Kiểm tra đăng ký tài khoản người dùng", () => {
   // Test case 12: Mật khẩu và xác nhận mật khẩu khớp, đúng biên độ (8 ký tự) => True
   test("Mật khẩu và xác nhận mật khẩu khớp, đúng biên độ (8 ký tự)", () => {
     const user_SignUp = new Auth_UserSignUp(
-      "thanhbr06@gmail.com",
+      "viet2k3nguyen@gmail.com",
       "12345678",
       "12345678"
     );
@@ -119,7 +119,7 @@ describe("Kiểm tra đăng ký tài khoản người dùng", () => {
   // Test case 13: Mật khẩu và xác nhận mật khẩu khớp, đúng biên độ (20 ký tự) => True
   test("Mật khẩu và xác nhận mật khẩu khớp, đúng biên độ (20 ký tự)", () => {
     const user_SignUp = new Auth_UserSignUp(
-      "thanhbr06@gmail.com",
+      "viet2k3nguyen@gmail.com",
       "a".repeat(20),
       "a".repeat(20)
     );
@@ -129,7 +129,7 @@ describe("Kiểm tra đăng ký tài khoản người dùng", () => {
   // Test case 14: Mật khẩu và xác nhận mật khẩu vượt quá biên (21 ký tự) => False
   test("Mật khẩu và xác nhận mật khẩu vượt quá biên (21 ký tự)", () => {
     const user_SignUp = new Auth_UserSignUp(
-      "thanhbr06@gmail.com",
+      "viet2k3nguyen@gmail.com",
       "a".repeat(21),
       "a".repeat(21)
     );
@@ -171,7 +171,7 @@ describe("Kiểm tra đăng ký tài khoản người dùng", () => {
   // Test case 18: Email hợp lệ, mật khẩu chứa ký tự unicode => False
   test("Email hợp lệ, mật khẩu chứa ký tự unicode", () => {
     const user_SignUp = new Auth_UserSignUp(
-      "thanhbr06@gmail.com",
+      "viet2k3nguyen@gmail.com",
       "mậtkhẩu123",
       "mậtkhẩu123"
     );
@@ -183,7 +183,7 @@ describe("Kiểm tra đăng ký tài khoản người dùng", () => {
   // Test case 19: Email hợp lệ, mật khẩu chứa ký tự đặc biệt => True
   test("Email hợp lệ, mật khẩu chứa ký tự đặc biệt", () => {
     const user_SignUp = new Auth_UserSignUp(
-      "thanhbr06@gmail.com",
+      "viet2k3nguyen@gmail.com",
       "1234$$5678",
       "1234$$5678"
     );
@@ -193,7 +193,7 @@ describe("Kiểm tra đăng ký tài khoản người dùng", () => {
   // Test case 20: Email hợp lệ, mật khẩu chỉ chứa ký tự số => True
   test("Email hợp lệ, mật khẩu chỉ chứa ký tự số", () => {
     const user_SignUp = new Auth_UserSignUp(
-      "thanhbr06@gmail.com",
+      "viet2k3nguyen@gmail.com",
       "12345678",
       "12345678"
     );
@@ -203,7 +203,7 @@ describe("Kiểm tra đăng ký tài khoản người dùng", () => {
   // Test case 21: Email hợp lệ, mật khẩu chỉ chứa ký tự chữ => True
   test("Email hợp lệ, mật khẩu chỉ chứa ký tự chữ", () => {
     const user_SignUp = new Auth_UserSignUp(
-      "thanhbr06@gmail.com",
+      "viet2k3nguyen@gmail.com",
       "abcdefgh",
       "abcdefgh"
     );
@@ -213,7 +213,7 @@ describe("Kiểm tra đăng ký tài khoản người dùng", () => {
   // Test case 22: Mật khẩu và xác nhận mật khẩu không khớp => False
   test("Mật khẩu và xác nhận mật khẩu không khớp", () => {
     const user_SignUp = new Auth_UserSignUp(
-      "thanhbr06@gmail.com",
+      "viet2k3nguyen@gmail.com",
       "12345678abc",
       "abc12345678"
     );
