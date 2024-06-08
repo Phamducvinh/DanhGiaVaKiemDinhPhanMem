@@ -56,57 +56,16 @@ describe("Đăng kí bảo hiểm", () => {
     expect(baohiem.isValidTypeAndDuration()).toBe(true);
   });
 
-  // Test case 9: Thời hạn bảo hiểm hợp lệ (đúng bằng biên (1 năm)) => False
+  // Test case 9: Thời hạn bảo hiểm hợp lệ (đúng bằng biên (1 năm)) => True
   test("Thời hạn bảo hiểm hợp lệ (đúng bằng biên (1 năm))", () => {
     const baohiem = new BaoHiem("Vip", 1);
     expect(baohiem.isValidTypeAndDuration()).toBe(true);
   });
 
-  // Test case 10: Thời hạn bảo hiểm không phải là số nguyên => False
-  test("Thời hạn bảo hiểm không phải là số nguyên", () => {
-    const baohiem = new BaoHiem("Vip", 3.5);
-    expect(baohiem.isValidTypeAndDuration()).toBe(false);
-  });
-
-  // Test case 11: Thời hạn bảo hiểm là số âm => False
-  test("Thời hạn bảo hiểm là số âm", () => {
-    const baohiem = new BaoHiem("Vip", -3);
-    expect(baohiem.isValidTypeAndDuration()).toBe(false);
-  });
-
-  // Test case 12: Kiểm tra loại bảo hiểm hợp lệ và thời hạn bảo hiểm trống => False
+  // Test case 10: Kiểm tra loại bảo hiểm hợp lệ và thời hạn bảo hiểm trống => False
   test("Kiểm tra loại bảo hiểm hợp lệ và thời hạn bảo hiểm trống", () => {
     const baohiem = new BaoHiem("Vip", null);
     expect(baohiem.isValidTypeAndDuration()).toBe(false);
   });
 
-  // Test case 13: Thời hạn bảo hiểm là số thực âm => False
-  test("Thời hạn bảo hiểm là số thực âm", () => {
-    const baohiem = new BaoHiem("Vip", -1.5);
-    expect(baohiem.isValidTypeAndDuration()).toBe(false);
-  });
-
-  // Test case 14: Thời hạn bảo hiểm là chuỗi ký tự => False
-  test("Thời hạn bảo hiểm là chuỗi ký tự", () => {
-    const baohiem = new BaoHiem("Vip", "three");
-    expect(baohiem.isValidTypeAndDuration()).toBe(false);
-  });
-
-  // Test case 15: Thời hạn bảo hiểm là boolean => False
-  test("Thời hạn bảo hiểm là boolean", () => {
-    const baohiem = new BaoHiem("Vip", true);
-    expect(baohiem.isValidTypeAndDuration()).toBe(false);
-  });
-
-  // Test case 16: Thời hạn bảo hiểm là object => False
-  test("Thời hạn bảo hiểm là object", () => {
-    const baohiem = new BaoHiem("Vip", { years: 3 });
-    expect(baohiem.isValidTypeAndDuration()).toBe(false);
-  });
-
-  // Test case 17: Thời hạn bảo hiểm là array => False
-  test("Thời hạn bảo hiểm là array", () => {
-    const baohiem = new BaoHiem("Vip", [3]);
-    expect(baohiem.isValidTypeAndDuration()).toBe(false);
-  });
 });

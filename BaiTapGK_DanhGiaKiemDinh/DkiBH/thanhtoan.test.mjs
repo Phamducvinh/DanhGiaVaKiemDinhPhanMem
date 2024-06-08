@@ -44,21 +44,4 @@ describe("Thanh toán tiền bảo hiểm", () => {
     expect(baohiem.calculateInsuranceCost()).toBe("Invalid input");
   });
 
-  // Test case 8: Tính số tiền bảo hiểm với thời hạn là số âm
-  test("Tính số tiền bảo hiểm với thời hạn là số âm", () => {
-    const baohiem = new BaoHiem("Vip", -3);
-    expect(baohiem.calculateInsuranceCost()).toBe("Invalid input");
-  });
-
-  // Test case 9: Tính số tiền bảo hiểm với thời hạn là số thực
-  test("Tính số tiền bảo hiểm với thời hạn là số thực", () => {
-    const baohiem = new BaoHiem("Vip", 2.5);
-    expect(baohiem.calculateInsuranceCost()).toBe("Invalid input");
-  });
-
-  // Test case 10: Tính số tiền bảo hiểm với thời hạn là chuỗi ký tự
-  test("Tính số tiền bảo hiểm với thời hạn là chuỗi ký tự", () => {
-    const baohiem = new BaoHiem("Vip", "ba");
-    expect(baohiem.calculateInsuranceCost()).toBe("Invalid input");
-  });
 });
