@@ -10,7 +10,7 @@ class BaoHiem {
 
   isValidType() {
     const validTypes = ["vip", "thường"];
-    return validTypes.includes(this.type.toLowerCase());
+    return this.type && validTypes.includes(this.type.toLowerCase());
   }
 
   isValidDuration() {
@@ -26,6 +26,10 @@ class BaoHiem {
   }
 
   calculateInsuranceCost() {
+    if (!this.isValidTypeAndDuration()) {
+      return "Invalid input";
+    }
+
     const costPerYear = this.type.toLowerCase() === "vip" ? 800000 : 500000;
     return costPerYear * this.duration;
   }
