@@ -151,19 +151,19 @@ describe("Kiểm tra tài khoản người dùng", () => {
 
   // Test case 24: Email chỉ chứa ký tự số
   test("Email chỉ chứa ký tự số", () => {
-    const user_SignUp = new Auth_UserSignUp("1234567890@gmail.com", "password123");
+    const user_SignUp = new Auth_User("1234567890@gmail.com", "password123");
     expect(user_SignUp.isValidEmailAndPassword()).toBe(true);
   });
 
   // Test case 25: Email chứa ký tự đặc biệt
   test("Email chứa ký tự đặc biệt", () => {
-    const user_SignUp = new Auth_UserSignUp("user-name123@example.com","securePass123");
+    const user_SignUp = new Auth_User("user-name123@example.com","securePass123");
     expect(user_SignUp.isValidEmailAndPassword()).toBe(true);
   });
 
   // Test case 26: Email với domain khác
   test("Email với domain khác", () => {
-    const user_SignUp = new Auth_UserSignUp("viet2k3nguyen@st.phenikaa-edu.com.vn","securePass1!");
+    const user_SignUp = new Auth_User("viet2k3nguyen@st.phenikaa-edu.com.vn","securePass1!");
     expect(user_SignUp.isValidEmailAndPassword()).toBe(true);
   });
 
