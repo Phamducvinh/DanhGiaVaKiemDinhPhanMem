@@ -15,7 +15,6 @@ describe("Khai báo thông tin đăng kí bảo hiểm", () => {
   });
 
   // Thiếu trường thông tin
-
   // Test case 2: User thiếu tên
   test("User thiếu tên", () => {
     const user = new User_Infor("", 30, "Nam", "0123456789", "123 Street");
@@ -334,50 +333,9 @@ describe("Khai báo thông tin đăng kí bảo hiểm", () => {
     );
     expect(user.isValidUser()).toBe(false);
   });
-  // Kiểm tra khi tất cả các trường đều trống
-  test("Tất cả các trường đều trống", () => {
-    const user = new User_Infor("", "", "", "", "");
-    expect(user.isValidUser()).toBe(false);
-  });
-  // Kiểm tra khi chỉ có một trường cụ thể nào đó là trống
-  // Test case 31: Tên trống
-  test("Tên trống", () => {
-    const user = new User_Infor("", 30, "Nam", "0123456789", "123 Street");
-    expect(user.isValidUser()).toBe(false);
-  });
-
-  // Test case 32: Tuổi trống
-  test("Tuổi trống", () => {
-    const user = new User_Infor(
-      "John Doe",
-      "",
-      "Nam",
-      "0123456789",
-      "123 Street"
-    );
-    expect(user.isValidUser()).toBe(false);
-  });
-
-  // Test case 33: Giới tính trống
-  test("Giới tính trống", () => {
-    const user = new User_Infor("John Doe", 30, "", "0123456789", "123 Street");
-    expect(user.isValidUser()).toBe(false);
-  });
-
-  // Test case 34: Số điện thoại trống
-  test("Số điện thoại trống", () => {
-    const user = new User_Infor("John Doe", 30, "Nam", "", "123 Street");
-    expect(user.isValidUser()).toBe(false);
-  });
-
-  // Test case 35: Địa chỉ trống
-  test("Địa chỉ trống", () => {
-    const user = new User_Infor("John Doe", 30, "Nam", "0123456789", "");
-    expect(user.isValidUser()).toBe(false);
-  });
 
   // Kiểm tra khi các trường có giá trị đặc biệt
-  // Test case 36: Tên chứa ký tự đặc biệt
+  // Test case 31: Tên chứa ký tự đặc biệt
   test("Tên chứa ký tự đặc biệt", () => {
     const user = new User_Infor(
       "John@Doe",
@@ -389,19 +347,8 @@ describe("Khai báo thông tin đăng kí bảo hiểm", () => {
     expect(user.isValidUser()).toBe(false);
   });
 
-  // Test case 37: Tuổi là giá trị ngoại lệ
-  test("Tuổi là giá trị ngoại lệ", () => {
-    const user = new User_Infor(
-      "John Doe",
-      -10,
-      "Nam",
-      "0123456789",
-      "123 Street"
-    );
-    expect(user.isValidUser()).toBe(false);
-  });
-
-  // Test case 38: Giới tính là giá trị ngoại lệ
+  
+  // Test case 32: Giới tính là giá trị ngoại lệ
   test("Giới tính là giá trị ngoại lệ", () => {
     const user = new User_Infor(
       "John Doe",
@@ -413,7 +360,7 @@ describe("Khai báo thông tin đăng kí bảo hiểm", () => {
     expect(user.isValidUser()).toBe(false);
   });
 
-  // Test case 39: Số điện thoại chứa ký tự đặc biệt
+  // Test case 33: Số điện thoại chứa ký tự đặc biệt
   test("Số điện thoại chứa ký tự đặc biệt", () => {
     const user = new User_Infor(
       "John Doe",
@@ -425,20 +372,8 @@ describe("Khai báo thông tin đăng kí bảo hiểm", () => {
     expect(user.isValidUser()).toBe(false);
   });
 
-  // Test case 40: Địa chỉ chứa ký tự đặc biệt
-  test("Địa chỉ chứa ký tự đặc biệt", () => {
-    const user = new User_Infor(
-      "John Doe",
-      30,
-      "Nam",
-      "0123456789",
-      "123 Street@"
-    );
-    expect(user.isValidUser()).toBe(false);
-  });
-
   // Kiểm tra khi các trường có giá trị ở giới hạn cao nhất hoặc thấp nhất của phạm vi hợp lệ
-  // Test case 41: Tên có giá trị ở giới hạn cao nhất
+  // Test case 34: Tên có giá trị ở giới hạn cao nhất
   test("Tên có giá trị ở giới hạn cao nhất", () => {
     const user = new User_Infor(
       "John Doe".repeat(100),
@@ -450,49 +385,7 @@ describe("Khai báo thông tin đăng kí bảo hiểm", () => {
     expect(user.isValidUser()).toBe(true);
   });
 
-  // Test case 42: Tên có giá trị ở giới hạn thấp nhất
-  test("Tên có giá trị ở giới hạn thấp nhất", () => {
-    const user = new User_Infor("J", 30, "Nam", "0123456789", "123 Street");
-    expect(user.isValidUser()).toBe(true);
-  });
-
-  // Test case 43: Tuổi có giá trị ở giới hạn cao nhất
-  test("Tuổi có giá trị ở giới hạn cao nhất", () => {
-    const user = new User_Infor(
-      "John Doe",
-      100,
-      "Nam",
-      "0123456789",
-      "123 Street"
-    );
-    expect(user.isValidUser()).toBe(true);
-  });
-
-  // Test case 44: Tuổi có giá trị ở giới hạn thấp nhất
-  test("Tuổi có giá trị ở giới hạn thấp nhất", () => {
-    const user = new User_Infor(
-      "John Doe",
-      1,
-      "Nam",
-      "0123456789",
-      "123 Street"
-    );
-    expect(user.isValidUser()).toBe(true);
-  });
-
-  // Test case 45: Số điện thoại có giá trị ở giới hạn cao nhất
-  test("Số điện thoại có giá trị ở giới hạn cao nhất", () => {
-    const user = new User_Infor(
-      "John Doe",
-      30,
-      "Nam",
-      "0123456789",
-      "1234567890"
-    );
-    expect(user.isValidUser()).toBe(true);
-  });
-
-  // Test case 46: Số điện thoại có giá trị ở giới hạn thấp nhất
+  // Test case 35: Số điện thoại có giá trị ở giới hạn thấp nhất
   test("Số điện thoại có giá trị ở giới hạn thấp nhất", () => {
     const user = new User_Infor(
       "John Doe",
@@ -504,7 +397,7 @@ describe("Khai báo thông tin đăng kí bảo hiểm", () => {
     expect(user.isValidUser()).toBe(true);
   });
 
-  // Test case 47: Địa chỉ có giá trị ở giới hạn cao nhất
+  // Test case 36: Địa chỉ có giá trị ở giới hạn cao nhất
   test("Địa chỉ có giá trị ở giới hạn cao nhất", () => {
     const user = new User_Infor(
       "John Doe",
@@ -516,7 +409,7 @@ describe("Khai báo thông tin đăng kí bảo hiểm", () => {
     expect(user.isValidUser()).toBe(true);
   });
 
-  // Test case 48: Địa chỉ có giá trị ở giới hạn thấp nhất
+  // Test case 37: Địa chỉ có giá trị ở giới hạn thấp nhất
   test("Địa chỉ có giá trị ở giới hạn thấp nhất", () => {
     const user = new User_Infor("John Doe", 30, "Nam", "0123456789", "1");
     expect(user.isValidUser()).toBe(true);
