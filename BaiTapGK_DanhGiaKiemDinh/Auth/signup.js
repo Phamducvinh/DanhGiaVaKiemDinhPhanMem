@@ -17,7 +17,7 @@ class Auth_UserSignUp {
     return (
       this.password.length >= 8 &&
       this.password.length <= 20 &&
-      !this.password.includes(" ")
+      !this.password.includes(" ") 
     );
   }
 

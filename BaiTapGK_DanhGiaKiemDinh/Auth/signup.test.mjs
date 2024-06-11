@@ -210,13 +210,106 @@ describe("Kiểm tra đăng ký tài khoản người dùng", () => {
     expect(user_SignUp.isValidEmailAndPassword()).toBe(true);
   });
 
-  // Test case 22: Mật khẩu và xác nhận mật khẩu không khớp => False
-  test("Mật khẩu và xác nhận mật khẩu không khớp", () => {
+  // Test case 22: Email hợp lệ, mật khẩu hợp lệ nhưng xác nhận mật khẩu không khớp => False
+  test("Email hợp lệ, mật khẩu hợp lệ nhưng xác nhận mật khẩu không khớp", () => {
     const user_SignUp = new Auth_UserSignUp(
       "viet2k3nguyen@gmail.com",
-      "12345678abc",
-      "abc12345678"
+      "abcdefgh",
+      "abcd5678"
     );
     expect(user_SignUp.isValidEmailAndPassword()).toBe(false);
   });
+
+  // Additional Test Cases
+
+  // Test case 23: Email hợp lệ, mật khẩu và xác nhận mật khẩu trùng khớp nhưng chứa ký tự đặc biệt => True
+  test("Email hợp lệ, mật khẩu và xác nhận mật khẩu trùng khớp nhưng chứa ký tự đặc biệt", () => {
+    const user_SignUp = new Auth_UserSignUp(
+      "viet2k3nguyen@gmail.com",
+      "P@ssw0rd!",
+      "P@ssw0rd!"
+    );
+    expect(user_SignUp.isValidEmailAndPassword()).toBe(true);
+  });
+
+  // Test case 24: Email không có đuôi miền => False
+  test("Email không có đuôi miền", () => {
+    const user_SignUp = new Auth_UserSignUp(
+      "viet2k3nguyen@",
+      "12345678abc",
+      "12345678abc"
+    );
+    expect(user_SignUp.isValidEmailAndPassword()).toBe(false);
+  });
+
+  // Test case 25: Email có hai dấu @ => False
+  test("Email có hai dấu @", () => {
+    const user_SignUp = new Auth_UserSignUp(
+      "viet2k3nguyen@@gmail.com",
+      "12345678abc",
+      "12345678abc"
+    );
+    expect(user_SignUp.isValidEmailAndPassword()).toBe(false);
+  });
+
+  // Test case 26: Email chỉ chứa ký tự số => True
+  test("Email chỉ chứa ký tự số", () => {
+    const user_SignUp = new Auth_UserSignUp(
+      "1234567890@gmail.com",
+      "password123",
+      "password123"
+    );
+    expect(user_SignUp.isValidEmailAndPassword()).toBe(true);
+  });
+
+  // Test case 27: Email chứa ký tự đặc biệt => True
+  test("Email chứa ký tự đặc biệt", () => {
+    const user_SignUp = new Auth_UserSignUp(
+      "user-name123@example.com",
+      "securePass123",
+      "securePass123"
+    );
+    expect(user_SignUp.isValidEmailAndPassword()).toBe(true);
+  });
+
+  // Test case 28: Email với domain khác => True
+  test("Email với domain khác", () => {
+    const user_SignUp = new Auth_UserSignUp(
+      "viet2k3nguyen@st.phenikaa-edu.com.vn",
+      "securePass1!",
+      "securePass1!"
+    );
+    expect(user_SignUp.isValidEmailAndPassword()).toBe(true);
+  });
+
+  // Test case 29: Mật khẩu chứa tất cả các ký tự chữ in hoa => True
+  test("Mật khẩu chứa tất cả các ký tự chữ in hoa", () => {
+    const user_SignUp = new Auth_UserSignUp(
+      "viet2k3nguyen@gmail.com",
+      "ABCDEFGH",
+      "ABCDEFGH"
+    );
+    expect(user_SignUp.isValidEmailAndPassword()).toBe(true);
+  });
+
+  // Test case 30: Email không có phần tên miền (domain) => False
+  test("Email không có phần tên miền (domain)", () => {
+    const user_SignUp = new Auth_UserSignUp(
+      "viet2k3nguyen@",
+      "password123",
+      "password123"
+    );
+    expect(user_SignUp.isValidEmailAndPassword()).toBe(false);
+  });
+
+  // Test case 31: Email chỉ chứa phần tên miền (domain) => False
+  test("Email chỉ chứa phần tên miền (domain)", () => {
+    const user_SignUp = new Auth_UserSignUp(
+      "@gmail.com",
+      "password123",
+      "password123"
+    );
+    expect(user_SignUp.isValidEmailAndPassword()).toBe(false);
+  });
+
 });
