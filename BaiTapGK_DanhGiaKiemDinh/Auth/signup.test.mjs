@@ -139,7 +139,7 @@ describe("Kiểm tra đăng ký tài khoản người dùng", () => {
   // Test case 15: Mật khẩu và xác nhận mật khẩu ngắn hơn biên (7 ký tự) => False
   test("Mật khẩu và xác nhận mật khẩu ngắn hơn biên (7 ký tự)", () => {
     const user_SignUp = new Auth_UserSignUp(
-      "thanhbr06@gmail.com",
+      "viet2k3nguyen@gmail.com",
       "abc1234",
       "abc1234"
     );
@@ -151,7 +151,7 @@ describe("Kiểm tra đăng ký tài khoản người dùng", () => {
   // Test case 16: Email hợp lệ, mật khẩu chứa khoảng trắng => False
   test("Email hợp lệ, mật khẩu chứa khoảng trắng", () => {
     const user_SignUp = new Auth_UserSignUp(
-      "thanhbr06@gmail.com",
+      "viet2k3nguyen@gmail.com",
       "abcd efgh",
       "abcd efgh"
     );
@@ -161,7 +161,7 @@ describe("Kiểm tra đăng ký tài khoản người dùng", () => {
   // Test case 17: Email hợp lệ, mật khẩu chỉ chứa dấu cách => False
   test("Email hợp lệ, mật khẩu chỉ chứa dấu cách", () => {
     const user_SignUp = new Auth_UserSignUp(
-      "thanhbr06@gmail.com",
+      "viet2k3nguyen@gmail.com",
       "        ",
       "        "
     );
