@@ -9,3 +9,5 @@
     - signup.test.mjs
     - khaibao.test.mjs
 - Các lỗi:
+
+![alt text](image.png)
